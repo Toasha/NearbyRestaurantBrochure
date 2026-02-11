@@ -1,6 +1,6 @@
 # 簡易仕様書
 
-# RestaurantSearcher
+# NearbyRestaurantBrochure
 ### リクルートWEBサービスのホットペッパーグルメリサーチAPIを使用して、現在地付近のレストラン情報を検索するスマートフォンアプリ
 
 ### 対象OS
