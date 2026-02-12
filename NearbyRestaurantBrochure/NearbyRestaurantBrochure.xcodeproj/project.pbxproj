@@ -29,9 +29,22 @@
 		5B7DCA102F3C9C47008AE2B1 /* NearbyRestaurantBrochureUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NearbyRestaurantBrochureUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		5B7DCA342F3D88D7008AE2B1 /* Exceptions for "NearbyRestaurantBrochure" folder in "NearbyRestaurantBrochure" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 5B7DC9F82F3C9C46008AE2B1 /* NearbyRestaurantBrochure */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		5B7DC9FB2F3C9C46008AE2B1 /* NearbyRestaurantBrochure */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				5B7DCA342F3D88D7008AE2B1 /* Exceptions for "NearbyRestaurantBrochure" folder in "NearbyRestaurantBrochure" target */,
+			);
 			path = NearbyRestaurantBrochure;
 			sourceTree = "<group>";
 		};
@@ -271,6 +284,8 @@
 /* Begin XCBuildConfiguration section */
 		5B7DCA182F3C9C47008AE2B1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 5B7DC9FB2F3C9C46008AE2B1 /* NearbyRestaurantBrochure */;
+			baseConfigurationReferenceRelativePath = Config.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -335,6 +350,8 @@
 		};
 		5B7DCA192F3C9C47008AE2B1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 5B7DC9FB2F3C9C46008AE2B1 /* NearbyRestaurantBrochure */;
+			baseConfigurationReferenceRelativePath = Config.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -400,6 +417,7 @@
 				DEVELOPMENT_TEAM = WTG8DCR86Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NearbyRestaurantBrochure/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -432,6 +450,7 @@
 				DEVELOPMENT_TEAM = WTG8DCR86Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NearbyRestaurantBrochure/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
