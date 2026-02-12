@@ -2,13 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Informaiton Property List</key>
+	<key>APIKeys</key>
 	<dict>
-		<key>APIKey</key>
-		<dict>
-			<key>Recruit_API_KEY</key>
-			<string>${Recruit_API_KEY)</string>
-		</dict>
+		<key>Recruit_API_KEY</key>
+		<string>$(Recruit_API_KEY)</string>
 	</dict>
 </dict>
 </plist>
