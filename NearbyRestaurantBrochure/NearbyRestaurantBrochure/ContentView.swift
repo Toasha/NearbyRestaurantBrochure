@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  NearbyRestaurantBrochure
-//
-//  Created by yano syoudai on 2026/02/11.
-//
-
 import SwiftUI
 
 struct ContentView: View {
@@ -15,7 +8,17 @@ struct ContentView: View {
                 .foregroundStyle(.tint)
             Text("Hello, world!")
         }
-        .padding()
+        .onAppear {
+            if let key = APIKeyManager.shared.apiKey(for: "Recruit_API_KEY") {
+                print("取得成功:", key)
+                
+                if key.contains("$(") {
+                    print("ビルド設定で不備あり")
+                }
+            } else {
+                print("APIキー取得失敗")
+            }
+        }
     }
 }
 
