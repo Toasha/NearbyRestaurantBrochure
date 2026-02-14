@@ -1,26 +1,26 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .onAppear {
-            if let key = APIKeyManager.shared.apiKey(for: "Recruit_API_KEY") {
-                print("取得成功:", key)
-                
-                if key.contains("$(") {
-                    print("ビルド設定で不備あり")
+        Text("通信テスト")
+            .task {
+                do {
+                    let shops = try await APIClient().fetchShops()
+                    
+                    print("取得件数:", shops.count)
+                    
+                    if let first = shops.first {
+                        print("最初の店:", first.name ?? "名前なし")
+                    }
+                    
+                } catch {
+                    print("エラー:", error)
                 }
-            } else {
-                print("APIキー取得失敗")
             }
-        }
     }
 }
+
 
 #Preview {
     ContentView()
