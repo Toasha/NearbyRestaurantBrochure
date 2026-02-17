@@ -14,6 +14,11 @@ struct ContentView: View {
                         print("最初の店:", first.name ?? "名前なし")
                     }
                     
+                    if let second = shops.last {
+                        print("最後の店:", second.name ?? "名前なし")
+                        print(second.access!)
+                    }
+                    
                 } catch {
                     print("エラー:", error)
                 }
