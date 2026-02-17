@@ -10,8 +10,8 @@ struct ContentView: View {
             .onAppear {
                 locationManager.startUpdating()
             }
-            .onChange(of: locationManager.coordinate) { coordinate in
-                guard let coordinate else { return }
+            .onChange(of: locationManager.coordinate) { _, newValue in
+                guard let coordinate = newValue else { return }
                 
                 Task {
                     await viewModel.fetchShops(with: coordinate)
