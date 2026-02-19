@@ -24,6 +24,8 @@
 ### 使用しているライブラリ、SDKなど
 - SwiftUI
 - Foundation
+- CoreLocation
+- Combine
 
 ### コンセプト
 
