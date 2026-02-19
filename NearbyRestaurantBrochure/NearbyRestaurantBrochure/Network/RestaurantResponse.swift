@@ -39,11 +39,19 @@ struct Budget: Decodable {
 
 // MARK: - Photo
 struct Photo: Decodable {
-    let mobile: PhotoMobile?
+    let mobile: PhotoSize?
+    let pc: PhotoSize?
 }
 
 // MARK: - PhotoMobile
 struct PhotoMobile: Decodable {
     let l: String?
+    let s: String?
+}
+
+//MARK: - PhotoSize
+struct PhotoSize: Decodable {
+    let l: String?
+    let m: String?
     let s: String?
 }
