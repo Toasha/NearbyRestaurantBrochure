@@ -29,7 +29,6 @@ struct ShopCardView: View {
                     .font(.title3)
                     .foregroundStyle(Color(.black))
                     .bold()
-                
                 HStack{
                     Image(systemName: "mappin.and.ellipse.circle")
                         .foregroundStyle(Color(.apricot))

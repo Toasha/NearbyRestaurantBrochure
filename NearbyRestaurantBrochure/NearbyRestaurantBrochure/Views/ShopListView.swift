@@ -12,6 +12,10 @@ struct ShopListView: View {
                     LazyVStack(spacing: 20) {
                         ForEach(viewModel.shops, id: \.name) { shop in
                             ShopCardView(shop: shop)
+                                .scrollTransition(.interactive) { content, phase in
+                                    content
+                                        .opacity(phase.isIdentity ? 1.0 : 0.5)
+                                }
                         }
                     }
                     .padding()
