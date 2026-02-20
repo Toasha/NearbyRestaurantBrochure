@@ -15,7 +15,7 @@ class APIKeyManager {
 
 struct APIClient {
     
-    func fetchShops(coordinate: Coordinate) async throws -> [Shop] {
+    func fetchShops(coordinate: Coordinate, range: SearchRange) async throws -> [Shop] {
         
         guard let apiKey = APIKeyManager.shared.apiKey(for: "Recruit_API_KEY") else {
             throw URLError(.badURL)
@@ -29,7 +29,7 @@ struct APIClient {
             URLQueryItem(name: "key", value: apiKey),
             URLQueryItem(name: "lat", value: "\(coordinate.latitude)"),
             URLQueryItem(name: "lng", value: "\(coordinate.longitude)"),
-            URLQueryItem(name: "range", value: "3"),
+            URLQueryItem(name: "range", value: "\(range.rawValue)"),
             URLQueryItem(name: "format", value: "json")
         ]
         

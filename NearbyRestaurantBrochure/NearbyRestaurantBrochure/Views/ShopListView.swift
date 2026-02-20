@@ -26,6 +26,7 @@ struct ShopListView: View {
                         .background(
                             Circle()
                                 .fill(Color.orange)
+                                .glassEffect()
                                 .shadow(color: .black.opacity(0.2),
                                         radius: 8,
                                         x: 0,
@@ -35,7 +36,9 @@ struct ShopListView: View {
                 .padding(.trailing, 20)
                 .padding(.bottom, 30)
                 .sheet(isPresented: $showDetail) {
-                    Text("詳細フィルタ")
+                    FilterSheetView(viewModel: viewModel)
+                        .presentationDetents([.medium,.large])
+                        .presentationBackground(Color(.systemBackground))
                 }
             }
             .navigationTitle("付近の店舗")
