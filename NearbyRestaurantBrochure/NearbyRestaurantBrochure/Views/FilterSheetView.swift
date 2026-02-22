@@ -51,20 +51,24 @@ struct FilterSheetView: View {
                 }
                 
                 //MARK: - acquisitions number
-                VStack(alignment: .leading, spacing: 16) {
+                VStack(alignment: .leading, spacing: 0) {
                     HStack {
                         Text("取得件数")
                             .font(.headline)
                         Spacer()
-                        Picker("取得件数", selection: $selection) {
-                            Text("10件").tag(10)
-                            Text("20件").tag(20)
-                            Text("30件").tag(30)
-                            Text("40件").tag(40)
-                            Text("50件").tag(50)
-                        }
-                        .tint(.orange)
+                        Text("\(selection)件")
+                            .foregroundStyle(.orange)
+                            .padding()
                     }
+                    Picker("取得件数", selection: $selection) {
+                        Text("10件").tag(10)
+                        Text("20件").tag(20)
+                        Text("30件").tag(30)
+                        Text("40件").tag(40)
+                        Text("50件").tag(50)
+                    }
+                    .pickerStyle(.segmented)
+                    .tint(.orange)
                 }
             }
             .padding(.horizontal, 24)
