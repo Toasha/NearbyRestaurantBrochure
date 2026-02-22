@@ -30,7 +30,8 @@ struct APIClient {
             URLQueryItem(name: "lat", value: "\(coordinate.latitude)"),
             URLQueryItem(name: "lng", value: "\(coordinate.longitude)"),
             URLQueryItem(name: "range", value: "\(range.rawValue)"),
-            URLQueryItem(name: "format", value: "json")
+            URLQueryItem(name: "format", value: "json"),
+            URLQueryItem(name: "count", value: "1")
         ]
         
         guard let url = components?.url else {
