@@ -20,13 +20,13 @@ struct FilterSheetView: View {
             VStack(spacing: 32) {
                 
                 //MARK: -Slider
-                VStack(alignment: .leading, spacing: 16) {
+                VStack(alignment: .leading, spacing: 0) {
                     HStack {
                         Text("検索半径")
                             .font(.headline)
                         Spacer()
                         Text("\(viewModel.selectedRange.displayText)")
-                            .font(.headline)
+                            .padding()
                             .foregroundStyle(.orange)
                     }
                     
@@ -56,19 +56,15 @@ struct FilterSheetView: View {
                         Text("取得件数")
                             .font(.headline)
                         Spacer()
-                        Text("\(selection)件")
-                            .font(.headline)
-                            .foregroundStyle(.orange)
+                        Picker("取得件数", selection: $selection) {
+                            Text("10件").tag(10)
+                            Text("20件").tag(20)
+                            Text("30件").tag(30)
+                            Text("40件").tag(40)
+                            Text("50件").tag(50)
+                        }
+                        .tint(.orange)
                     }
-                    
-                    Picker("取得件数", selection: $selection) {
-                        Text("10件").tag(10)
-                        Text("20件").tag(20)
-                        Text("30件").tag(30)
-                        Text("40件").tag(40)
-                        Text("50件").tag(50)
-                    }
-                    .pickerStyle(.segmented)
                 }
             }
             .padding(.horizontal, 24)
