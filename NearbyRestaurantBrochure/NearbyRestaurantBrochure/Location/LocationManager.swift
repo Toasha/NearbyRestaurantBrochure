@@ -58,7 +58,6 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
     }
     
-    // エラーが発生したときに呼ばれる
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("位置情報の取得に失敗: \(error.localizedDescription)")
     }
