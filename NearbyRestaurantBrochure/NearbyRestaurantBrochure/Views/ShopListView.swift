@@ -46,6 +46,15 @@ struct ShopListView: View {
                 }
             }
             .navigationTitle("付近の店舗")
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        Task { await viewModel.fetchShops() }
+                    } label: {
+                        Image(systemName: "arrow.clockwise")
+                    }
+                }
+            }
         }
     }
 }

@@ -3,7 +3,7 @@ import SwiftUI
 struct FilterSheetView: View {
     
     @ObservedObject var viewModel: ShopListViewModel
-    @State private var selection: Int = 10
+    @Environment(\.dismiss) private var dismiss
     
     init(viewModel: ShopListViewModel) {
         self.viewModel = viewModel
@@ -52,13 +52,13 @@ struct FilterSheetView: View {
                     //MARK: - acquisitions number
                     VStack(alignment: .leading) {
                         HStack {
-                            Text("取得件数")
+                            Text("表示件数")
                                 .font(.headline)
                             Spacer()
-                            Text("\(selection)件")
+                            Text("\(viewModel.selectedCount.count)件")
                                 .foregroundStyle(.orange)
                         }
-                        Picker("取得件数", selection: $selection) {
+                        Picker("取得件数", selection: $viewModel.selectedCount.count) {
                             Text("10").tag(10)
                             Text("20").tag(20)
                             Text("30").tag(30)
@@ -77,7 +77,8 @@ struct FilterSheetView: View {
             HStack(spacing: 16) {
                 Button("リセット") {
                     viewModel.selectedRange = .km1
-                    selection = 10
+                    viewModel.selectedCount.count = 10
+                    
                 }
                 .font(.body.bold())
                 .frame(maxWidth: .infinity)
@@ -87,7 +88,10 @@ struct FilterSheetView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 16))
                 
                 Button("絞り込む") {
-                    // API再実行はここで
+                    Task {
+                        await viewModel.fetchShops()
+                        dismiss()
+                    }
                 }
                 .font(.body.bold())
                 .frame(maxWidth: .infinity)
