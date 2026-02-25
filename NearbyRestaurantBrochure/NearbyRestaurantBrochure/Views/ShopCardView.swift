@@ -29,7 +29,7 @@ struct ShopCardView: View {
                     .font(.title3)
                     .foregroundStyle(Color(.black))
                     .bold()
-                HStack{
+                HStack(alignment: .top){
                     Image(systemName: "mappin.and.ellipse.circle")
                         .foregroundStyle(Color(.apricot))
                     Text(shop.access ?? "")
