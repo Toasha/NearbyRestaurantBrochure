@@ -27,6 +27,9 @@ struct ShopListView: View {
                     }
                     .padding()
                 }
+                .refreshable {
+                    await viewModel.fetchShops()
+                }
                 Button {
                     showDetail = true
                 } label: {
