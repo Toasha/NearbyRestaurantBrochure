@@ -14,15 +14,27 @@ struct ShopListView: View {
         NavigationStack {
             ZStack(alignment: .bottomTrailing) {
                 ScrollView {
-                    LazyVStack(spacing: 20) {
-                        ForEach(viewModel.shops, id: \.name) { shop in
-                            ShopCardView(shop: shop)
-                                .scrollTransition(.interactive) { content, phase in
-                                    content
-                                        .opacity(phase.isIdentity ? 1.0 : 0.5)
+                    ScrollViewReader{ proxy in
+                        Color.clear
+                            .frame(height: 0)
+                            .id("top")
+                        LazyVStack(spacing: 20) {
+                            ForEach(viewModel.shops, id: \.name) { shop in
+                                ShopCardView(shop: shop)
+                                    .scrollTransition(.interactive) { content, phase in
+                                        content
+                                            .opacity(phase.isIdentity ? 1.0 : 0.5)
+                                    }
+                                    .redacted(reason: isLoading ? .placeholder : [])
+                                    .shimmering(active: isLoading)
+                            }
+                        }
+                        .onChange(of: viewModel.loadingState) { _, newState in
+                            if newState == .loaded {
+                                withAnimation {
+                                    proxy.scrollTo("top", anchor: .top)
                                 }
-                                .redacted(reason: isLoading ? .placeholder : [])
-                                .shimmering(active: isLoading)
+                            }
                         }
                     }
                     .padding()
