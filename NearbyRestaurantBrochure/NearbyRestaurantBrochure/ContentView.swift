@@ -12,7 +12,7 @@ struct ContentView: View {
             }
             .onChange(of: locationManager.coordinate) { _, newValue in
                 viewModel.coordinate = newValue
-                if let _ = newValue {
+                if newValue != nil && viewModel.shops.isEmpty {
                     Task {
                         await viewModel.fetchShops()
                     }

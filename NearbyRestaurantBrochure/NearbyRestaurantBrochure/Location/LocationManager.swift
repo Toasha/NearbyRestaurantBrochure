@@ -50,6 +50,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         case .authorizedWhenInUse, .authorizedAlways:
             startUpdating()
         case .denied, .restricted:
+            requestPermission()
             print("位置情報の権限がありません")
         case .notDetermined:
             requestPermission()
