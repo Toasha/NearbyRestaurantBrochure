@@ -26,6 +26,7 @@
 - Foundation
 - CoreLocation
 - Combine
+- shimmer
 
 ### コンセプト
 
