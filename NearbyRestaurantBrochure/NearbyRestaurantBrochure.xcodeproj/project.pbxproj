@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		5BC171B32F4E76F900B8F585 /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = 5BC171B22F4E76F900B8F585 /* Shimmer */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		5B7DCA072F3C9C47008AE2B1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -65,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BC171B32F4E76F900B8F585 /* Shimmer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +130,7 @@
 			);
 			name = NearbyRestaurantBrochure;
 			packageProductDependencies = (
+				5BC171B22F4E76F900B8F585 /* Shimmer */,
 			);
 			productName = NearbyRestaurantBrochure;
 			productReference = 5B7DC9F92F3C9C46008AE2B1 /* NearbyRestaurantBrochure.app */;
@@ -208,6 +214,9 @@
 			);
 			mainGroup = 5B7DC9F02F3C9C46008AE2B1;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				5BC171B12F4E76F900B8F585 /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 5B7DC9FA2F3C9C46008AE2B1 /* Products */;
 			projectDirPath = "";
@@ -738,6 +747,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5BC171B12F4E76F900B8F585 /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/markiv/SwiftUI-Shimmer.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5BC171B22F4E76F900B8F585 /* Shimmer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5BC171B12F4E76F900B8F585 /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */;
+			productName = Shimmer;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5B7DC9F12F3C9C46008AE2B1 /* Project object */;
 }

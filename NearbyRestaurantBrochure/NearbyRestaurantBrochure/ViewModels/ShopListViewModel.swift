@@ -4,10 +4,18 @@ import Combine
 @MainActor
 class ShopListViewModel: ObservableObject {
     
+    enum LoadingState {
+        case idle
+        case loading
+        case loaded
+        case error
+    }
+    
     @Published var shops: [Shop] = []
     @Published var coordinate: Coordinate?
     @Published var selectedRange: SearchRange = .km1
     @Published var selectedCount = CountParameters()
+    @Published var loadingState: LoadingState = .idle
     private let apiClient = APIClient()
     
     
@@ -17,14 +25,18 @@ class ShopListViewModel: ObservableObject {
             return
         }
         
+        loadingState = .loading
+        
         do {
             shops = try await apiClient.fetchShops(
                 coordinate: coordinate,
                 range: selectedRange,
                 count: selectedCount.count
             )
+            loadingState = .loaded
         } catch {
             print("APIエラー:", error)
+            loadingState = .error
         }
     }
 }

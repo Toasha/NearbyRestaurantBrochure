@@ -1,9 +1,14 @@
 import SwiftUI
+import Shimmer
 
 struct ShopListView: View {
     
     @ObservedObject var viewModel: ShopListViewModel
     @State private var showDetail: Bool = false
+    
+    private var isLoading: Bool {
+        viewModel.loadingState == .loading
+    }
     
     var body: some View {
         NavigationStack {
@@ -16,6 +21,8 @@ struct ShopListView: View {
                                     content
                                         .opacity(phase.isIdentity ? 1.0 : 0.5)
                                 }
+                                .redacted(reason: isLoading ? .placeholder : [])
+                                .shimmering(active: isLoading)
                         }
                     }
                     .padding()
