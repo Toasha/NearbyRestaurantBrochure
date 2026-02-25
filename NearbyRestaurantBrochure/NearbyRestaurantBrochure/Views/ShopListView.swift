@@ -4,7 +4,7 @@ import Shimmer
 struct ShopListView: View {
     
     @ObservedObject var viewModel: ShopListViewModel
-    @State private var showDetail: Bool = false
+    @State private var showFilter: Bool = false
     
     private var isLoading: Bool {
         viewModel.loadingState == .loading
@@ -31,7 +31,7 @@ struct ShopListView: View {
                     await viewModel.fetchShops()
                 }
                 Button {
-                    showDetail = true
+                    showFilter = true
                 } label: {
                     Image(systemName: "slider.horizontal.3")
                         .font(.title2)
@@ -49,7 +49,7 @@ struct ShopListView: View {
                 }
                 .padding(.trailing, 20)
                 .padding(.bottom, 30)
-                .sheet(isPresented: $showDetail) {
+                .sheet(isPresented: $showFilter) {
                     FilterSheetView(viewModel: viewModel)
                         .presentationDetents([.medium,.large])
                         .presentationBackground(Color(.systemBackground))

@@ -31,6 +31,11 @@ struct Shop: Decodable {
         case photo
     }
 }
+extension Shop {
+    static var mock: Shop {
+        Shop(name: "Loading Store Name", lat: nil, lng: nil, address: nil, access: "Loading access info...", mobileAccess: nil, open: nil, budget: nil, photo: nil)
+    }
+}
 
 // MARK: - Budget
 struct Budget: Decodable {
