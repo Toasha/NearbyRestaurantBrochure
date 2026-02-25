@@ -20,19 +20,24 @@ struct ShopListView: View {
                             .id("top")
                         LazyVStack(spacing: 20) {
                             ForEach(viewModel.shops, id: \.name) { shop in
-                                ShopCardView(shop: shop)
-                                    .scrollTransition(.interactive) { content, phase in
-                                        content
-                                            .opacity(phase.isIdentity ? 1.0 : 0.5)
-                                    }
-                                    .redacted(reason: isLoading ? .placeholder : [])
-                                    .shimmering(active: isLoading)
+                                NavigationLink{
+                                    ShopDetailView(shop: shop)
+                                }label: {
+                                    ShopCardView(shop: shop)
+                                        .scrollTransition(.interactive) { content, phase in
+                                            content
+                                                .opacity(phase.isIdentity ? 1.0 : 0.5)
+                                        }
+                                        .redacted(reason: isLoading ? .placeholder : [])
+                                        .shimmering(active: isLoading)
+                                }
+                                .buttonStyle(.plain)
                             }
-                        }
-                        .onChange(of: viewModel.loadingState) { _, newState in
-                            if newState == .loaded {
-                                withAnimation {
-                                    proxy.scrollTo("top", anchor: .top)
+                            .onChange(of: viewModel.loadingState) { _, newState in
+                                if newState == .loaded {
+                                    withAnimation {
+                                        proxy.scrollTo("top", anchor: .top)
+                                    }
                                 }
                             }
                         }
